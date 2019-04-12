@@ -68,7 +68,7 @@
                 columns,
                 loading: false,
                 pagination: false,
-                rootUrl: 'http://localhost:3000',
+                rootUrl: this.$store.state.rootUrl,
                 error: null,
                 isEdit: 0,
                 isAdding: false,

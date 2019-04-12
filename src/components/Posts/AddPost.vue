@@ -82,7 +82,7 @@
                 statusValue: 'published',
                 categories: [],
                 categoryValue: 5,
-                rootUrl: 'http://localhost:3000',
+                rootUrl: this.$store.state.rootUrl,
                 tags: [],
                 isLoading: false,
                 error: ''

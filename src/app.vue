@@ -61,7 +61,7 @@
                 collapsed: false,
                 hashAddress: this.$route.path.substr(1),
                 locale: zhCN,
-                rootUrl: 'http://localhost:3000',
+                rootUrl: this.$store.state.rootUrl,
             }
         },
         created() {

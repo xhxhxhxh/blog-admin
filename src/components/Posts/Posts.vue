@@ -100,7 +100,7 @@
                 selectedRowKeys: [], // Check here to configure the default column
                 loading: false,
                 pagination: false,
-                rootUrl: 'http://localhost:3000',
+                rootUrl: this.$store.state.rootUrl,
                 error: null,
                 totalCount: 1,
                 page: 1,

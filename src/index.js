@@ -41,6 +41,11 @@ Vue.use(Popconfirm);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 
+const store = new Vuex.Store({
+    state: {
+        rootUrl: 'http://localhost:5000'
+    }
+});
 
 new Vue({
     el: '#app',
@@ -48,5 +53,6 @@ new Vue({
         message: '哈哈哈'
     },
     render: c => c(app),
-    router
+    router,
+    store
 });

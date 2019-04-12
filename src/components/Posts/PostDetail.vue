@@ -31,7 +31,7 @@
         data() {
             return {
                 postDetail: {},
-                rootUrl: 'http://localhost:3000',
+                rootUrl: this.$store.state.rootUrl,
                 id: '',
                 error: null,
                 tags: {},

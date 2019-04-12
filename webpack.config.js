@@ -4,6 +4,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
+    mode: 'development',
     entry: path.join(__dirname,'./src/index.js'),
     output: {
         path: path.join(__dirname,'./dist'),
@@ -22,7 +23,11 @@ module.exports = {
             template: path.join(__dirname,'./src/index.html'),
             filename: 'index.html',
             favicon: './favicon.ico'
-        })
+        }),
+        new webpack.ContextReplacementPlugin(
+            /moment[/\\]locale$/,
+            /zh-cn/,
+        ),
     ],
     module: {
         rules: [

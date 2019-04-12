@@ -1,5 +1,5 @@
 <template>
-    <div class="disabled-container">
+    <div class="dashboard-container">
         <div class="banner">
             <h1>One Belt, One Road</h1>
             <h4>Thoughts, stories and ideas.</h4>
@@ -27,7 +27,7 @@
                 error: null,
                 postsCategoryCount: [],
                 postsCategoryName: [],
-                rootUrl: 'http://localhost:3000'
+                rootUrl: this.$store.state.rootUrl
             }
         },
         created () {
@@ -94,7 +94,7 @@
 </script>
 
 <style lang="less" scoped>
-.disabled-container {
+.dashboard-container {
     position: relative;
     height: 100%;
     .banner {
