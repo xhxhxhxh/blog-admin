@@ -22,7 +22,7 @@
                     <a-select-option value="all">所有状态</a-select-option>
                     <a-select-option :value="item.slug" v-for="item in status" :key="item.slug">{{item.name}}</a-select-option>
                 </a-select>
-                <a-button @click="getPostsList">筛选</a-button>
+                <a-button @click="() => {getPostsCount();getPostsList()}">筛选</a-button>
             </div>
             <div class="pagination">
                 <a-pagination showQuickJumper :defaultCurrent="1" :total="totalCount" :defaultPageSize="pageSize" @change="changePage" v-model="page"/>
