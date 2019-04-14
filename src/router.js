@@ -5,6 +5,7 @@ import AddPost from './components/Posts/AddPost.vue';
 import EditPost from './components/Posts/EditPost.vue';
 import PostDetail from './components/Posts/PostDetail.vue';
 import Category from './components/Category/Category.vue';
+import User from './components/User/User.vue';
 
 const router = new VueRouter ({
     routes: [
@@ -15,6 +16,7 @@ const router = new VueRouter ({
         { path: '/post/detail/:id', component: PostDetail },
         { path: '/post/edit/:id', component: EditPost },
         { path: '/category', component: Category },
+        { path: '/user', component: User },
     ]
 });
 

@@ -25,7 +25,7 @@
                         </a-menu-item>
                         <a-sub-menu key="sub2">
                             <span slot="title"><a-icon type="setting" /><span> 设置</span></span>
-                            <a-menu-item key="6">个人中心</a-menu-item>
+                            <a-menu-item key="user"><router-link to="/user">个人中心</router-link></a-menu-item>
                             <a-menu-item key="7">我的标签</a-menu-item>
                         </a-sub-menu>
                     </a-menu>
@@ -38,7 +38,7 @@
                                 @click="()=> collapsed = !collapsed"
                         />
                         <div class="logout">
-                            <span class="user" style="margin-right: 24px"><a-icon type="user" /><span> 个人中心</span></span>
+                            <span class="user" style="margin-right: 24px" @click="$router.push('/user')"><a-icon type="user" /><span> 个人中心</span></span>
                             <span class="signOut" style="margin-right: 24px" @click="signOut"><a-icon type="logout"/><span> 退出</span></span>
                         </div>
                     </a-layout-header>

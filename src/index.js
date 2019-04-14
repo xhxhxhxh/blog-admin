@@ -4,7 +4,8 @@ import router from './router';
 import app from './app.vue';
 import './css/base.css';
 import axios from 'axios'
-import { Layout, Menu, Icon, Button, Card, Select, Pagination, Table, Tag, Input, Alert, Spin, message, Modal, LocaleProvider, Popconfirm } from 'ant-design-vue';
+import { Layout, Menu, Icon, Button, Card, Select, Pagination, Table, Tag, Input, Alert, Spin, message, Modal,
+    LocaleProvider, Popconfirm, Form, Upload } from 'ant-design-vue';
 import Vuex from 'vuex';
 
 Vue.config.productionTip = false;
@@ -35,6 +36,8 @@ Vue.use(Spin);
 Vue.use(Modal);
 Vue.use(LocaleProvider);
 Vue.use(Popconfirm);
+Vue.use(Form);
+Vue.use(Upload);
 
 
 
