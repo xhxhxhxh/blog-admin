@@ -6,6 +6,7 @@ import EditPost from './components/Posts/EditPost.vue';
 import PostDetail from './components/Posts/PostDetail.vue';
 import Category from './components/Category/Category.vue';
 import User from './components/User/User.vue';
+import ResetPassword from './components/User/ResetPassword.vue';
 
 const router = new VueRouter ({
     routes: [
@@ -17,6 +18,7 @@ const router = new VueRouter ({
         { path: '/post/edit/:id', component: EditPost },
         { path: '/category', component: Category },
         { path: '/user', component: User },
+        { path: '/resetPassword', component: ResetPassword },
     ]
 });
 

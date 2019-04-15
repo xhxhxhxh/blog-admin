@@ -72,10 +72,10 @@
                 </a-textarea>
             </a-form-item>
             <a-form-item v-bind="tailFormItemLayout">
-                <a-button type="primary" html-type="submit">
+                <a-button type="primary" html-type="submit" :loading="isloading">
                     更新
                 </a-button>
-                <a-button style="margin-left: 10px">
+                <a-button style="margin-left: 10px" @click="$router.push('/resetPassword')">
                     修改密码
                 </a-button>
             </a-form-item>
@@ -97,6 +97,7 @@
         data () {
             return {
                 loading: false,
+                isloading: false,
                 email: '',
                 slug: '',
                 nickname: '',
@@ -164,14 +165,16 @@
                 e.preventDefault();
                 this.form.validateFieldsAndScroll((err, values) => {
                     if (err) {
-                        console.log(err);
+                        // console.log(err);
                     }
                     if (!err) {
                         // console.log('Received values of form: ', values);
+                        this.isloading = true;
                         this.$axios.post(this.rootUrl + '/updateUser', values)
                             .then(results => {
                                 let data = results.data;
-                                console.log(data.message);
+                                this.isloading = false;
+                                // console.log(data.message);
                                 if (data.err_code == 200) {
                                     this.$message.success('更新成功！');
                                 }else if (data.err_code == 100) {
@@ -191,11 +194,11 @@
             //文件上传验证
             handleChange (info) {
                 if (info.file.status === 'uploading') {
-                    this.loading = true
+                    this.loading = true;
                     return
                 }
                 if (info.file.status === 'done') {
-                    console.log(info.file);
+                    // console.log(info.file);
                     const result = info.file.response;
                     // Get this url from response in real world.
                     // getBase64(info.file.originFileObj, (imageUrl) => {
