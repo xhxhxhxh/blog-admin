@@ -140,7 +140,7 @@
                 this.$axios.post(this.rootUrl + '/getUserData')
                     .then(results => {
                         let data = results.data;
-                        console.log(data.message);
+                        // console.log(data.message);
                         if (data.err_code == 200) {
                             const user = data.message;
                             this.email = user.email;

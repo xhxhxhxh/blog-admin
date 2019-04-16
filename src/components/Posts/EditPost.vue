@@ -39,6 +39,10 @@
                         {{item.name}}
                     </a-select-option>
                 </a-select>
+                <label for="link">项目链接：</label>
+                <a-input placeholder="http://" id="link" name="link" v-model="link"/>
+                <label for="github">github：</label>
+                <a-input placeholder="http://" id="github" name="github" v-model="github"/>
                 <label for="tags">标签：</label>
                 <a-select
                         mode="multiple"
@@ -82,6 +86,8 @@
                 status,
                 title: '',
                 content: '',
+                link: '',
+                github: '',
                 statusValue: 'published',
                 categories: [],
                 categoryValue: 5,
@@ -110,6 +116,8 @@
                             this.postItem = data.message;
                             this.title = this.postItem.title;
                             this.content = this.postItem.content;
+                            this.link = this.postItem.link == '#'? '': this.postItem.link;
+                            this.github = this.postItem.github == '#'? '': this.postItem.github;
                             this.statusValue = this.postItem.status;
                             this.categoryValue = this.postItem.category;
                             let tagArr = this.postItem.tags.split(',');
@@ -143,6 +151,9 @@
                 let category = this.categoryValue;
                 let status = this.statusValue.trim();
                 let tags = this.selectedTags;
+                let link = myForm.elements['link'].value.trim();
+                let github = myForm.elements['github'].value.trim();
+                const reg = /^http:\/\/|^https:\/\//;
 
                 if (title == '') {
                     return this.$message.warning('请输入标题');
@@ -152,6 +163,12 @@
                 }
                 if (status == '') {
                     return this.$message.warning('请选择状态');
+                }
+                if (link && !reg.test(link)) {
+                    return this.$message.warning('链接格式不合法');
+                }
+                if (github && !reg.test(github)) {
+                    return this.$message.warning('链接格式不合法');
                 }
                 if (tags.length < 1 || tags.length > 3) {
                     return this.$message.warning('请至少选择1个标签，最多不能超过3个');
@@ -165,6 +182,8 @@
                     category,
                     status,
                     tags,
+                    link,
+                    github,
                     date: moment(date).format('YYYY-MM-DD HH:mm:ss')
                 };
                 this.isLoading = true;
@@ -281,6 +300,10 @@
             .right {
                 flex: 1;
                 padding-left: 24px;
+                input {
+                    margin-top: 5px;
+                    margin-bottom: 20px;
+                }
                 .tagsWarn {
                     color: rgba(0, 0, 0, 0.45);
                     font-size: 12px;

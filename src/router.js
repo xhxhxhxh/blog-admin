@@ -7,6 +7,7 @@ import PostDetail from './components/Posts/PostDetail.vue';
 import Category from './components/Category/Category.vue';
 import User from './components/User/User.vue';
 import ResetPassword from './components/User/ResetPassword.vue';
+import MyTags from './components/Tags/MyTags.vue';
 
 const router = new VueRouter ({
     routes: [
@@ -19,6 +20,7 @@ const router = new VueRouter ({
         { path: '/category', component: Category },
         { path: '/user', component: User },
         { path: '/resetPassword', component: ResetPassword },
+        { path: '/myTags', component: MyTags },
     ]
 });
 

@@ -26,7 +26,7 @@
                         <a-sub-menu key="sub2">
                             <span slot="title"><a-icon type="setting" /><span> 设置</span></span>
                             <a-menu-item key="user"><router-link to="/user">个人中心</router-link></a-menu-item>
-                            <a-menu-item key="7">我的标签</a-menu-item>
+                            <a-menu-item key="myTags"><router-link to="/myTags">我的标签</router-link></a-menu-item>
                         </a-sub-menu>
                     </a-menu>
                 </a-layout-sider>
