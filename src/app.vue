@@ -8,7 +8,7 @@
                         v-model="collapsed"
                 >
                     <div class="logo" />
-                    <div class="avatar"><img src="./images/spider.jpg" alt=""><p>管理员</p></div>
+                    <div class="avatar"><img :src="rootUrl + avatar" alt=""><p>管理员</p></div>
                     <a-menu theme="dark" mode="inline" :defaultSelectedKeys="[hashAddress]" :selectedKeys="[hashAddress]">
                         <a-menu-item key="dashboard">
                             <router-link to="/dashboard"><a-icon type="compass" /><span> 仪表盘</span></router-link>
@@ -43,7 +43,7 @@
                         </div>
                     </a-layout-header>
                     <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px',height:'100%' }">
-                        <router-view></router-view>
+                        <router-view @getAvatar="getAvatar"></router-view>
                     </a-layout-content>
                 </a-layout>
             </a-layout>
@@ -62,10 +62,11 @@
                 hashAddress: this.$route.path.substr(1),
                 locale: zhCN,
                 rootUrl: this.$store.state.rootUrl,
+                avatar: ''
             }
         },
         created() {
-
+            this.getAvatar();
         },
         watch:{
             $route(to,from){
@@ -98,7 +99,24 @@
 
                     }
                 });
-            }
+            },
+
+            //获取头像
+            getAvatar () {
+                this.$axios.get(this.rootUrl + '/getAvatar')
+                    .then(results => {
+                        let data = results.data;
+                        if (data['err_code'] == 200) {
+                            this.avatar = data.message[0].avatar;
+                        } else{
+
+                        }
+                    })
+                    .catch(err => {
+
+                    })
+            },
+
         }
     }
 </script>

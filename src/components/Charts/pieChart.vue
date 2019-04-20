@@ -35,7 +35,7 @@
         },
         methods: {
             pieChart () {
-                const myChart = echarts.init(document.getElementById('myPieChart'), null,{height:330, width:500});
+                const myChart = echarts.init(document.getElementById('myPieChart'), null,{ width:500});
                 // 绘制图表
                 myChart.setOption({
                     tooltip: {

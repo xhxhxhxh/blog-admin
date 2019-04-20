@@ -6,13 +6,14 @@
             <a-button type="primary" @click="toPosts">写 文 章</a-button>
         </div>
         <div class="statistics">
-            <a-card title="站点内容统计：" :bordered="false" style="width: 300px">
+            <a-card title="站点内容统计：" :bordered="false" style="width: 300px" class="myCard">
                 <p>{{count.posts}}篇文章</p>
                 <p>{{count.categories}}个分类</p>
                 <p>{{count.tags}}个标签</p>
             </a-card>
+            <Piechart :chartData="postsCategoryCount" :chartName="postsCategoryName"></Piechart>
         </div>
-        <Piechart :chartData="postsCategoryCount" :chartName="postsCategoryName"></Piechart>
+
     </div>
 </template>
 
@@ -98,7 +99,7 @@
     position: relative;
     height: 100%;
     .banner {
-        height: 300px;
+        height: 50%;
         /*background-color: #eee;*/
         display: flex;
         justify-content: center;
@@ -119,21 +120,25 @@
             /*letter-spacing: 1px;*/
         }
     }
-    #myPieChart {
-        position: absolute;
-        right: -90px;
-        bottom: -40px;
-    }
+
     .statistics {
         padding: 30px;
-        > div {
+        position: relative;
+        height: 50%;
+        #myPieChart {
+            position: absolute;
+            right: -90px;
+            bottom: -40px;
+            height: 110%;
+        }
+        .myCard {
             border: 1px solid #e8e8e8;
             p {
                 color: rgba(0, 0, 0, 0.75);
                 font-weight: 500;
             }
         }
-        > div:hover {
+        .myCard:hover {
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
             border-color: rgba(0, 0, 0, 0.09);
         }

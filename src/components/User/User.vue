@@ -177,6 +177,7 @@
                                 // console.log(data.message);
                                 if (data.err_code == 200) {
                                     this.$message.success('更新成功！');
+                                    this.$emit('getAvatar');
                                 }else if (data.err_code == 100) {
                                     this.$message.warning('服务器正忙，请稍后再试！');
                                 }else {
